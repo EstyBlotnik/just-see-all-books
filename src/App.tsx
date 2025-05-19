@@ -1,9 +1,9 @@
 import './App.css'
-import AllBooks from './components/AllBooks'
+import BookList from './components/BookList'
 
 function App() {
   return (
-    <AllBooks />
+    <BookList />
   )
 }
 
