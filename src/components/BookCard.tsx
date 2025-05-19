@@ -12,10 +12,10 @@ export const BookCard: React.FC<BookCardProps> = ({ book }) => {
             <div
                 className="cover"
                 style={{
-                    backgroundImage: `url(${book.imageUrl || '/no-image.gif'})`,
+                    backgroundImage: `url(${book.image || '/no-image.gif'})`,
                 }}
             >
-                <a href={`/products/${book.id}`} className="cover-link" />
+                {/* <a href={`/products/${book.id}`} className="cover-link" /> */}
                 <span className="options">
                     <button className="option-button">❤️ אהבתי</button>
                     <button className="option-button">➕ הוספה לסל</button>
