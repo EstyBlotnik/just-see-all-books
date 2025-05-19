@@ -8,7 +8,7 @@ export interface BookCardProps {
 
 export const BookCard: React.FC<BookCardProps> = ({ book }) => {
     return (
-        <div className="book-card" data-id={book.id}>
+        <div className="book-card" data-id={book._id}>
             <div
                 className="cover"
                 style={{
@@ -26,16 +26,7 @@ export const BookCard: React.FC<BookCardProps> = ({ book }) => {
                 <h3>{book.title}</h3>
                 <div className="more">
                     <b>מאת {book.author}</b>
-                    <br />
-                    {/* {book.collectionLinks.map((link, i) => (
-                        <span key={i}>
-                            <a href={link.url}>{link.name}</a>
-                            {i < collectionLinks.length - 1 ? ', ' : ''}
-                        </span>
-                    ))} */}
                 </div>
-
-                {book.isUsed && <div className="type">יד שניה</div>}
 
                 <div className="book-status">
                     <span className="price">{book.price.toFixed(2)} ₪</span>
