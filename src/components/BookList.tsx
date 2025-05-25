@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import type { Book } from '../types/Book';
 import { fetchBooks } from '../api/booksApi';
 import { useInfiniteScroll } from '../hooks/useInfiniteScroll';
