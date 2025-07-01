@@ -26,7 +26,7 @@ const ResponsiveAppBar = () => {
     <AppBar position='fixed' sx={{ width: '100%' }} dir='rtl'>
       <Container maxWidth='xl'>
         <Toolbar disableGutters sx={{ display: 'flex', width: '100%' }}>
-          <Box sx={{ flex: 1, display: 'flex', justifyContent: 'flex-start' }}>
+          {/* <Box sx={{ flex: 1, display: 'flex', justifyContent: 'flex-start' }}>
             <Typography
               variant='h6'
               noWrap
@@ -44,7 +44,46 @@ const ResponsiveAppBar = () => {
             >
               אפילוג
             </Typography>
+          </Box> */}
+          <Box
+            sx={{
+              flex: 1,
+              display: 'flex',
+              justifyContent: 'space-around',
+              flexDirection: 'column',
+              ml: 4,
+            }}
+          >
+            <Typography
+              variant='h6'
+              noWrap
+              component='a'
+              href='/'
+              sx={{
+                display: 'flex',
+                fontFamily: 'monospace',
+                fontWeight: 600,
+                letterSpacing: '.1rem',
+                color: 'inherit',
+                textDecoration: 'none',
+              }}
+            >
+              אפילוג
+            </Typography>
+
+            <Typography
+              variant='body2'
+              sx={{
+                fontFamily: 'monospace',
+                fontSize: '1rem',
+                color: 'inherit',
+                display: { xs: 'none', md: 'block' },
+              }}
+            >
+              ספרי יד שניה
+            </Typography>
           </Box>
+
           <Box sx={{ flex: 1, display: 'flex', justifyContent: 'center' }}>
             <SearchBar onSearch={handleSearch} />
           </Box>
