@@ -1,0 +1,76 @@
+.search-bar-container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.search-bar {
+  display: flex;
+  border: 1px solid #ccc;
+  height: 40px;
+  direction: rtl;
+  width: fit-content;
+}
+
+.search-input {
+  flex: 1;
+  border: none;
+  padding: 0 10px;
+  font-size: 14px;
+  outline: none;
+  direction: rtl;
+  background-color: white;
+  color: #333;
+}
+
+.search-button {
+  width: 40px;
+  background-color: #e0f0ff; /* צהוב */
+  border: none;
+  border-left: 1px solid #ccc;
+  cursor: pointer;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.search-button:hover {
+  background-color: #d3e9fd;
+}
+
+.search-results {
+  position: absolute;
+  top: 100%; /* מתחת לבאר */
+  left: 0;
+  right: 0;
+  background: white;
+  color: black;
+  border: 1px solid #ccc;
+  z-index: 10;
+  max-height: 250px;
+  overflow-y: auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.search-results ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.search-result-item {
+  padding: 10px;
+  border-top: 1px solid #eee;
+  font-size: 14px;
+  cursor: pointer;
+  text-align: right;
+}
+
+.search-result-item:first-child {
+  border-top: none;
+}
+
+.search-result-item:hover {
+  background-color: #f7f7f7;
+}
