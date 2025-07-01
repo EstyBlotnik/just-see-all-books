@@ -30,4 +30,5 @@ export interface Book {
   sellerNotes: string;
   customerNotes: string;
   bookLocation: LocationType;
+  isActive?: boolean;
 }

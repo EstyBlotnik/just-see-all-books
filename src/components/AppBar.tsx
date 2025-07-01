@@ -34,7 +34,7 @@ const ResponsiveAppBar = () => {
               href='/'
               sx={{
                 ml: 4,
-                display: { xs: 'none', md: 'flex' },
+                display: 'flex',
                 fontFamily: 'monospace',
                 fontWeight: 600,
                 letterSpacing: '.2rem',
@@ -42,7 +42,7 @@ const ResponsiveAppBar = () => {
                 textDecoration: 'none',
               }}
             >
-              החנות של מוטי
+              אפילוג
             </Typography>
           </Box>
           <Box sx={{ flex: 1, display: 'flex', justifyContent: 'center' }}>
