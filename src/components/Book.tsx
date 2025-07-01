@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button, Typography, Box, Chip, CircularProgress } from '@mui/material';
 import { useNavigate, useParams } from 'react-router-dom';
 import type { Book } from '../types/Book';
