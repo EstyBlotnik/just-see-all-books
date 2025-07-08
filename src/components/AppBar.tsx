@@ -26,25 +26,6 @@ const ResponsiveAppBar = () => {
     <AppBar position='fixed' sx={{ width: '100%' }} dir='rtl'>
       <Container maxWidth='xl'>
         <Toolbar disableGutters sx={{ display: 'flex', width: '100%' }}>
-          {/* <Box sx={{ flex: 1, display: 'flex', justifyContent: 'flex-start' }}>
-            <Typography
-              variant='h6'
-              noWrap
-              component='a'
-              href='/'
-              sx={{
-                ml: 4,
-                display: 'flex',
-                fontFamily: 'monospace',
-                fontWeight: 600,
-                letterSpacing: '.2rem',
-                color: 'inherit',
-                textDecoration: 'none',
-              }}
-            >
-              אפילוג
-            </Typography>
-          </Box> */}
           <Box
             sx={{
               flex: 1,

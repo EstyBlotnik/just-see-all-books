@@ -26,6 +26,7 @@ const BookDetailsPage: React.FC = () => {
   const handleAllBooks = () => {
     navigate('/');
   };
+
   if (isLoading) {
     return (
       <Box display='flex' justifyContent='center' mt={4}>
