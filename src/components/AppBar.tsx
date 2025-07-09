@@ -24,7 +24,7 @@ const ResponsiveAppBar = () => {
   return (
     <AppBar
       position='fixed'
-      sx={{ width: '100%', background: '#beb2966b' }}
+      sx={{ width: '100%', background: '#e3dcc9' }}
       dir='rtl'
     >
       <Container maxWidth='xl'>
