@@ -23,10 +23,14 @@ const ResponsiveAppBar = () => {
   };
 
   return (
-    <AppBar position='fixed' sx={{ width: '100%' }} dir='rtl'>
+    <AppBar
+      position='fixed'
+      sx={{ width: '100%', background: '#beb2966b' }}
+      dir='rtl'
+    >
       <Container maxWidth='xl'>
         <Toolbar disableGutters sx={{ display: 'flex', width: '100%' }}>
-          <Box
+          {/* <Box
             sx={{
               flex: 1,
               display: 'flex',
@@ -63,7 +67,9 @@ const ResponsiveAppBar = () => {
             >
               ספרי יד שניה
             </Typography>
-          </Box>
+          </Box> */}
+
+          <img src='/epilogue.png' width='100' height='50' />
 
           <Box sx={{ flex: 1, display: 'flex', justifyContent: 'center' }}>
             <SearchBar onSearch={handleSearch} />
