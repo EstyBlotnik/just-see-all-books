@@ -8,7 +8,7 @@ import { get_all_books, get_book_by_id } from '../services/bookService';
 
 interface Filters {
   q?: string;
-  category?: string;
+  category?: string[];
 }
 
 export interface PageResponse {
@@ -18,13 +18,42 @@ export interface PageResponse {
   currentPage: number;
 }
 
+const serializeFilters = (
+  filters: Filters
+): Record<string, string | string[]> => {
+  const serialized: Record<string, string | string[]> = {};
+
+  for (const [key, value] of Object.entries(filters)) {
+    if (value !== undefined) {
+      if (Array.isArray(value)) {
+        serialized[key] = value; // ← לא מצרף למחרוזת! שומר כמערך
+      } else {
+        serialized[key] = value;
+      }
+    }
+  }
+  return serialized;
+};
+
+function createFilterVariants(filters: Filters) {
+  const serialized = serializeFilters(filters);
+
+  const filtersForQueryKey = Object.fromEntries(
+    Object.entries(serialized).map(([key, value]) => [
+      key,
+      Array.isArray(value) ? value.join(",") : value,
+    ])
+  );
+
+  return {
+    filtersForQueryKey, // For React Query
+    filtersForQueryFn: serialized, // For API call
+  };
+}
+
 export const useBooks = (filters: Filters = {}) => {
   const queryClient = useQueryClient();
-
-  const sanitizedFilters = Object.fromEntries(
-    Object.entries(filters).filter(([_, v]) => v !== undefined)
-  ) as Record<string, string>;
-
+  const { filtersForQueryKey, filtersForQueryFn } = createFilterVariants(filters);
   // Fetch books
   const {
     data,
@@ -40,13 +69,10 @@ export const useBooks = (filters: Filters = {}) => {
     [string, Record<string, string>],
     number
   >({
-    queryKey: ['books', sanitizedFilters],
+    queryKey: ['books', filtersForQueryKey],
     initialPageParam: 1,
     queryFn: ({ pageParam = 1 }) => {
-      const sanitizedFilters = Object.fromEntries(
-        Object.entries(filters).filter(([_, v]) => v !== undefined)
-      ) as Record<string, string>;
-      return get_all_books(Number(pageParam), 20, sanitizedFilters);
+      return get_all_books(Number(pageParam), 20, filtersForQueryFn);
     },
     getNextPageParam: (lastPage) =>
       lastPage.currentPage < lastPage.totalPages

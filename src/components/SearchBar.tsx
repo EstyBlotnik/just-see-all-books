@@ -10,7 +10,7 @@ const SearchBar: React.FC<{ onSearch: (query: string) => void }> = ({
   const [query, setQuery] = useState('');
   const debouncedQuery = useDebounce(query, 400);
   const [results, setResults] = useState([]);
-  const api = `${import.meta.env.VITE_API_BASE_URL}`;
+  const api = `${import.meta.env.VITE_API_BASE_URL}/book`;
   useEffect(() => {
     if (debouncedQuery.length >= 2) {
       fetchResults();

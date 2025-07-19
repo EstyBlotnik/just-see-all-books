@@ -7,7 +7,7 @@ import { useSearchParams } from 'react-router-dom';
 const BooksGrid: React.FC = () => {
   const [searchParams, _] = useSearchParams();
   const q = searchParams.get('q') || '';
-  const category = searchParams.get('category') || '';
+  const category = searchParams.getAll('category');
   const { books, fetchNextPage, hasNextPage, isFetchingNextPage, isLoading } =
     useBooks({
       q,
